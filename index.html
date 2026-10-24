@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5ef">
+  <title>foreign — учи английский</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="foreign, главная"><span class="brand-mark">f.</span><span>foreign</span></a>
+      <p class="side-label">ОБУЧЕНИЕ</p>
+      <nav class="nav" aria-label="Главная навигация">
+        <button class="nav-item active" data-view="home"><span>⌂</span> Обзор</button>
+        <button class="nav-item" data-view="words"><span>▤</span> Словарь</button>
+        <button class="nav-item" data-view="cards"><span>▱</span> Карточки</button>
+        <button class="nav-item" data-view="quiz"><span>✓</span> Мини-тест</button>
+      </nav>
+      <div class="sidebar-note"><span class="note-icon">✦</span><strong>Маленькие шаги</strong><p>Немного английского каждый день — и ты заметишь прогресс.</p></div>
+      <p class="sidebar-footer">Твоя языковая привычка</p>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div><p class="eyebrow" id="today-label">ТВОЙ ПУТЬ К АНГЛИЙСКОМУ</p><h1 id="page-title">Добро пожаловать!</h1></div>
+        <div class="level-pill"><span class="level-dot"></span> Уровень A1</div>
+      </header>
+
+      <section class="view" id="view-home">
+        <div class="hero">
+          <div class="hero-copy"><span class="tag">YOUR ENGLISH JOURNEY</span><h2>Каждый день<br>на шаг ближе.</h2><p>Изучай слова, проверяй знания и строй уверенную базу английского.</p><button class="button button-light" data-go="cards">Начать учиться <span>↗</span></button></div>
+          <div class="hero-art" aria-hidden="true"><div class="sun"></div><div class="book book-back"></div><div class="book book-front"><span>ABC</span><small>LEARN<br>EVERY DAY</small></div><span class="floating-word word-one">hello!</span><span class="floating-word word-two">learn ✦</span></div>
+        </div>
+
+        <div class="section-heading"><div><p class="eyebrow">ТВОЯ СТАТИСТИКА</p><h2>Уже получается</h2></div><span class="muted">Данные сохраняются в этом браузере</span></div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-icon green">▤</div><p>Изучено слов</p><strong id="learned-count">0</strong><span class="stat-caption">Твой словарный запас</span></article>
+          <article class="stat-card"><div class="stat-icon peach">✓</div><p>Правильных ответов</p><strong id="correct-count">0</strong><span class="stat-caption">За все мини-тесты</span></article>
+          <article class="stat-card"><div class="stat-icon lavender">✦</div><p>Слов в словаре</p><strong id="total-count">20</strong><span class="stat-caption">Можно выучить сегодня</span></article>
+        </div>
+
+        <div class="section-heading"><div><p class="eyebrow">ПЛАН НА СЕГОДНЯ</p><h2>Выбери свой следующий шаг</h2></div></div>
+        <div class="action-grid">
+          <button class="action-card" data-go="words"><span class="action-icon">📚</span><span><strong>Изучи слова</strong><small>Слова с переводом и примерами</small></span><b>→</b></button>
+          <button class="action-card" data-go="cards"><span class="action-icon">🗂️</span><span><strong>Повтори карточки</strong><small>Запоминай в своём темпе</small></span><b>→</b></button>
+          <button class="action-card" data-go="quiz"><span class="action-icon">✍️</span><span><strong>Пройди мини-тест</strong><small>Проверь, что уже знаешь</small></span><b>→</b></button>
+        </div>
+      </section>
+
+      <section class="view hidden" id="view-words">
+        <div class="page-intro"><p class="eyebrow">BUILD YOUR VOCABULARY</p><h2>Твой словарь</h2><p>Изучай полезные слова уровня A1. Нажми «Знаю слово», если уже запомнила его.</p></div>
+        <div class="toolbar"><input id="word-search" type="search" placeholder="Поиск слова или перевода…" aria-label="Поиск слов"><select id="category-filter" aria-label="Фильтр по категории"><option value="all">Все категории</option><option value="Basics">Основы</option><option value="Family">Семья</option><option value="Home">Дом</option><option value="Study">Учёба</option></select></div>
+        <div id="word-list" class="word-list"></div>
+      </section>
+
+      <section class="view hidden" id="view-cards">
+        <div class="page-intro"><p class="eyebrow">REMEMBER & REPEAT</p><h2>Карточки слов</h2><p>Попробуй вспомнить перевод до того, как перевернёшь карточку.</p></div>
+        <div class="flashcard-wrap">
+          <div class="flashcard" id="flashcard" role="button" tabindex="0" aria-label="Перевернуть карточку">
+            <span class="card-counter" id="card-counter">КАРТОЧКА 1 / 20</span><span class="card-category" id="card-category">ОСНОВЫ</span><strong id="card-word">hello</strong><span class="card-hint" id="card-hint">Нажми, чтобы увидеть перевод</span><p class="card-example" id="card-example"></p>
+          </div>
+          <div class="card-controls"><button class="button button-outline" id="prev-card">← Назад</button><button class="button button-primary" id="flip-card">Показать перевод</button><button class="button button-outline" id="next-card">Далее →</button></div>
+          <button class="known-toggle" id="card-known">✓ Я знаю это слово</button>
+        </div>
+      </section>
+
+      <section class="view hidden" id="view-quiz">
+        <div class="page-intro"><p class="eyebrow">QUICK PRACTICE</p><h2>Мини-тест</h2><p>Выбери правильный перевод. Каждый ответ помогает закрепить знания.</p></div>
+        <div class="quiz-panel" id="quiz-panel">
+          <div class="quiz-top"><span class="tag">A1 • СЛОВАРЬ</span><span id="quiz-progress">Вопрос 1 из 10</span></div>
+          <div class="progress-track"><div id="quiz-progress-bar"></div></div>
+          <p class="quiz-question-label">Как переводится слово?</p><h3 id="quiz-word">hello</h3><div class="answer-grid" id="answer-grid"></div>
+          <p id="quiz-feedback" class="quiz-feedback" aria-live="polite"></p>
+          <button class="button button-primary quiz-next" id="quiz-next" disabled>Следующий вопрос →</button>
+        </div>
+        <div class="quiz-result hidden" id="quiz-result"><span class="result-icon">✦</span><p class="eyebrow">ТЕСТ ЗАВЕРШЁН</p><h2 id="result-title">Отличная работа!</h2><p id="result-summary"></p><button class="button button-primary" id="restart-quiz">Пройти ещё раз</button></div>
+      </section>
+
+      <footer class="footer"><span>foreign <span class="footer-dot">✦</span> Учись в своём темпе</span><span>Сделано с интересом к языкам</span></footer>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
